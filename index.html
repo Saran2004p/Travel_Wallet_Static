@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trip Splitter — Offline</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <h1>Trip Splitter</h1>
+      <p class="sub">Travel theme · Offline · Saves to your browser</p>
+    </div>
+  </header>
+
+  <main class="container grid">
+    <!-- Left column: Members & Controls -->
+    <section class="card">
+      <h2>Members</h2>
+      <div class="small">Add the people on the trip (admin adds members)</div>
+
+      <div class="form-row">
+        <input id="memberName" placeholder="Member name (e.g., Alex)" />
+        <button id="addMemberBtn" class="btn">Add</button>
+      </div>
+
+      <ul id="membersList" class="list"></ul>
+
+      <div class="controls">
+        <button id="exportMembersBtn" class="btn ghost">Export members CSV</button>
+        <button id="resetBtn" class="btn danger">Reset all data</button>
+      </div>
+    </section>
+
+    <!-- Middle: Events -->
+    <section class="card">
+      <h2>Events / Places</h2>
+      <div class="small">Add events like Food, Swimming, Games. Enter total and how much each member paid.</div>
+
+      <div class="form-row">
+        <input id="eventName" placeholder="Event name (e.g., Swimming)" />
+        <input id="eventTotal" placeholder="Total amount (e.g., 1200)" type="number" min="0" step="0.01"/>
+      </div>
+
+      <div id="paymentsGrid" class="payments-grid small"></div>
+
+      <div class="form-row">
+        <button id="addEventBtn" class="btn">Add Event</button>
+        <button id="showExampleBtn" class="btn ghost">Fill example</button>
+      </div>
+
+      <h3 class="mt">Events</h3>
+      <div id="eventsList" class="events-list"></div>
+    </section>
+
+    <!-- Right: Settlement -->
+    <section class="card">
+      <h2>Settlement</h2>
+      <div class="small">Compute total paid by each member and suggested transfers.</div>
+
+      <div class="summary card-sub">
+        <div><strong>Total trip expense</strong><div id="totalExpense">₹0.00</div></div>
+        <div><strong>Share per person</strong><div id="sharePerPerson">₹0.00</div></div>
+        <div><strong>Members</strong><div id="memberCount">0</div></div>
+      </div>
+
+      <div class="form-row">
+        <button id="computeBtn" class="btn primary">Compute Settlement</button>
+        <button id="exportBtn" class="btn ghost">Export settlement CSV</button>
+      </div>
+
+      <div id="balancesBox" class="mt"></div>
+      <div id="transfersBox" class="mt"></div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <small>Made for quick trip splits • Data stored locally in your browser</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
